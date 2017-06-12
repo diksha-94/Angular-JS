@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>ng-repeat directive</title>
+		<script src="Scripts/angular.min.js"></script>
+		<script src="Scripts/nestedNgRepeat.js"></script>
+	</head>
+	<body ng-app="myModule">
+		<div ng-controller="myController">
+			<ul>
+				<li ng-repeat="country in location" ng-init="parentIndex=$index">
+					{{country.countryName}} - Index - {{ $index }}
+					<ul> 
+						<li ng-repeat="city in country.cities">
+							Parent index using $parent.$index:     {{city.name}} - Index = {{ $index }} - Parent index = {{ $parent.$index }}
+							<br/>
+							Parent index using ng-init="parentIndex = $index":     {{city.name}} - Index = {{ $index }} - Parent index = {{ parentIndex }}
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

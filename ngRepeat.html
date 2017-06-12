@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>ng-repeat directive</title>
+		<script src="Scripts/angular.min.js"></script>
+		<script src="Scripts/ngRepeat.js"></script>
+	</head>
+	<body ng-app="myModule">
+		<div ng-controller="myController">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Age</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat = "employee in employees">
+						<td>{{employee.name}}</td>
+						<td>{{employee.gender}}</td>
+						<td>{{employee.age}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

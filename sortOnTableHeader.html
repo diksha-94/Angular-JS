@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Angular filters</title>
+		<script src="Scripts/angular.min.js"></script>
+		<script src="Scripts/sortOnTableHeader.js"></script>
+	</head>
+	<body ng-app="myModule">
+		<div ng-controller="myController">
+			<table border="1">
+				<thead>
+					<tr>
+						<th ng-click="sortedData('name')">Name</th>
+						<th ng-click="sortedData('dob')">Date of Birth</th>
+						<th ng-click="sortedData('gender')">Gender</th>
+						<th ng-click="sortedData('salary')">Salary</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="employee in employees | orderBy:currentColumn:currentOrder">
+						<td>{{employee.name | uppercase }}</td>
+						<td>{{employee.dob | date : "dd/MM/yyyy"}}</td>
+						<td>{{employee.gender | lowercase }}</td>
+						<td>{{employee.salary | number:1}}</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</body>
+</html>

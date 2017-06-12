@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Angular filters</title>
+		<script src="Scripts/angular.min.js"></script>
+		<script src="Scripts/searchfilter.js"></script>
+	</head>
+	<body ng-app="myModule">
+		<div ng-controller="myController">
+			Search:<input type="text" placeholder="Search employees" ng-model="searchData.name"/>
+			<br/><br/>
+		
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>City</th>
+						<th>Gender</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="employee in employees | filter:searchData">
+						<td>{{employee.name | uppercase }}</td>
+						<td>{{employee.city}}</td>
+						<td>{{employee.gender | lowercase }}</td>
+						<td>{{employee.salary | number:1}}</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</body>
+</html>

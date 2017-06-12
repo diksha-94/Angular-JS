@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Angular filters</title>
+		<script src="Scripts/angular.min.js"></script>
+		<script src="Scripts/formatFilters.js"></script>
+	</head>
+	<body ng-app="myModule">
+		<div ng-controller="myController">
+			Number of rows to display: <input type="number" min="0" max="4" ng-model="rowLimit"/>
+			Sort on: <select ng-model="sortBy">
+				<option value="+name">name ASC</option>
+				<option value="-name">name DESC</option>
+				<option value="+salary">salary ASC</option>
+				<option value="-salary">salary DESC</option>
+				<option value="+dob">dob ASC</option>
+				<option value="-dob">dob DESC</option>
+				<option value="+gender">gender ASC</option>
+				<option value="-gender">gender DESC</option>
+				<!--<option value="Name ASC">Name ASC</option>-->
+			</select>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Date of Birth</th>
+						<th>Gender</th>
+						<th>Salary</th>
+						<th>Salary in rupees</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="employee in employees | limitTo:rowLimit | orderBy:sortBy">
+						<td>{{employee.name | uppercase }}</td>
+						<td>{{employee.dob | date : "dd/MM/yyyy"}}</td>
+						<td>{{employee.gender | lowercase }}</td>
+						<td>{{employee.salary | number:1}}</td>
+						<td>{{employee.salary | currency:"Rs.":1}}</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</body>
+</html>

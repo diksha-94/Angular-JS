@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Two way data binding</title>
+		<script src="Scripts/angular.min.js"></script>
+		<script src="Scripts/twoWayDataBinding.js"></script>
+	</head>
+	<body ng-app="myModule">
+		<div ng-controller="myController">
+			Using simple binding expression as value for input text(Changes will not reflect to the model): <input type="text" value="{{message}}"/>
+			<br/>
+			{{message}}
+			
+			<br/>
+			<br/>
+			Using ng-model with input text(Changes will reflect to model): <input type="text" ng-model="message"/>
+			<br/>
+			{{message}}
+			
+			<br/>
+			<br/>
+			model "text" is not created in the controller, so it will be created: <input type="text" ng-model="text"/>
+			<br/>
+			{{text}}
+		</div>
+	</body>
+</html>
